@@ -1,0 +1,20 @@
+{{page-title "Add"}}
+
+<div class="right">
+    <LinkTo @route="entries">cancel</LinkTo>
+</div>
+
+<h2>Add New Entry</h2>
+
+<dl>
+    <dt>Name:</dt>
+    <dd>{{input value=name}}</dd>
+</dl>
+
+<br>
+
+<div>
+    <button type="button" {{action 'createEntry'}}>create entry</button>
+</div>
+
+{{outlet}}

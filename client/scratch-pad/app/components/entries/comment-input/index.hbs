@@ -1,0 +1,26 @@
+<Textarea
+    @value={{@text}}
+    readonly={{@isReadOnly}}
+    maxlength="250"
+    cols="50"
+    rows="5"
+    placeholder="enter a comment" />
+
+<div>
+    {{@text.length}}
+    of 250 characters used
+</div>
+
+<br>
+
+<div>
+    <button
+        type="button"
+        disabled={{or (eq @text.length 0) @isReadOnly}}
+        title={{if (eq @text.length 0) 'Enter a comment.' ''}}
+        {{on "click" this.buttonClick}}>
+        {{@buttonText}}
+    </button>
+</div>
+
+{{yield}}

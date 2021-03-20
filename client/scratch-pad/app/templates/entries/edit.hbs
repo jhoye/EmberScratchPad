@@ -1,0 +1,32 @@
+{{page-title "Edit"}}
+
+<div class="right">
+    <LinkTo @route="entries.details" @model={{model.entry.id}}>cancel</LinkTo>
+</div>
+
+<h2>Edit Entry</h2>
+
+<dl>
+    <dt>ID:</dt>
+    <dd>{{model.entry.id}}</dd>
+
+    <dt>Name:</dt>
+    <dd>{{input value=name}}</dd>
+
+    <dt>Categories:</dt>
+    <dd>
+        <Entries::CheckboxList
+            @categories={{model.categories}}
+            @entryCategories={{model.entry.categories}}
+            @addCategoryHandler={{this.addCategory}}
+            @removeCategoryHandler={{this.removeCategory}} />
+    </dd>
+</dl>
+
+<br>
+
+<div>
+    <button type="button" {{action 'save'}}>save changes</button>
+</div>
+
+{{outlet}}

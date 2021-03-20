@@ -1,0 +1,27 @@
+{{page-title "Entries"}}
+
+{{#if (eq target.currentRouteName 'entries.index')}}
+
+    <h2>Entries</h2>
+
+    <ul>
+        {{#each model as |entry|}}
+            <li>
+                <span>
+                    <LinkTo @route="entries.details" @model={{entry.id}}>
+                        {{entry.name}}
+                    </LinkTo>
+                </span>
+            </li>
+        {{/each}}
+    </ul>
+
+    <br>
+
+    <div>
+        <LinkTo @route="entries.add">add new entry</LinkTo>
+    </div>
+
+{{/if}}
+
+{{outlet}}

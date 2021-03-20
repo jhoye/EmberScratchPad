@@ -1,0 +1,58 @@
+{{page-title "Details"}}
+
+<div class="right">
+    <LinkTo @route="entries.edit" @model={{model.entry.id}}>edit</LinkTo>
+    <button
+        type="button"
+        disabled={{gt model.entry.comments.length 0}}
+        title={{if (gt model.entry.comments.length 0) 'Entry has comments and cannot be deleted.' ''}}
+        {{action 'delete'}}>delete</button>
+</div>
+
+<h2>Entry Details</h2>
+
+<dl>
+    <dt>ID:</dt>
+    <dd>{{model.entry.id}}</dd>
+
+    <dt>Name:</dt>
+    <dd>{{model.entry.name}}</dd>
+
+    <dt>Categories:</dt>
+    <dd>
+        <ul>
+            {{#each model.entry.categories as |category|}}
+                <li>{{category.name}}</li>
+            {{else}}
+                <em>none</em>
+            {{/each}}
+        </ul>
+    </dd>
+</dl>
+
+<hr>
+
+<h3>Comments</h3>
+{{#each model.entry.comments as |comment|}}
+    <div class="comment">
+        <div class="right">
+            <LinkTo @route="comments.edit" @model={{comment.id}}>edit</LinkTo>
+            <button type="button" {{action 'deleteComment' comment.id}}>delete</button>
+        </div>
+        <p>{{comment.text}}</p>
+    </div>
+{{else}}
+    <div>
+        <p><em>none</em></p>
+    </div>
+{{/each}}
+
+<div>
+    <Entries::CommentInput
+        @text={{commentText}}
+        @isReadOnly={{isSaving}}
+        @buttonText="add comment"
+        @buttonClickHandler={{this.addComment}} />
+</div>
+
+{{outlet}}

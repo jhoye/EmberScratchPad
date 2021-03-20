@@ -1,0 +1,22 @@
+{
+    "js/ts.implicitProjectConfig.experimentalDecorators": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "files.exclude": {
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/tmp": true
+    },
+    "search.exclude": {
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/tmp": true
+    },
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#00bb00",
+        "titleBar.activeForeground": "#000000",
+        "titleBar.inactiveForeground": "#ffffff"
+    }
+
+}

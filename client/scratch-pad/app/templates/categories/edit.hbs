@@ -1,0 +1,23 @@
+{{page-title "Edit"}}
+
+<div class="right">
+    <LinkTo @route="categories.details" @model={{model.id}}>cancel</LinkTo>
+</div>
+
+<h2>Edit Category</h2>
+
+<dl>
+    <dt>ID:</dt>
+    <dd>{{model.id}}</dd>
+
+    <dt>Name:</dt>
+    <dd>{{input value=name}}</dd>
+</dl>
+
+<br>
+
+<div>
+    <button type="button" {{action 'save'}}>save changes</button>
+</div>
+
+{{outlet}}

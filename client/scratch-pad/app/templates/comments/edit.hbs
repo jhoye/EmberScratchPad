@@ -1,0 +1,22 @@
+{{page-title "Edit"}}
+
+<div class="right">
+    <LinkTo @route="entries.details" @model={{model.entry.id}}>cancel</LinkTo>
+</div>
+
+<h2>Edit Comment</h2>
+
+<dl>
+    <dt>ID:</dt>
+    <dd>{{model.id}}</dd>
+</dl>
+
+<div>
+    <Entries::CommentInput
+        @text={{commentText}}
+        @isReadOnly={{isSaving}}
+        @buttonText="save"
+        @buttonClickHandler={{this.save}} />
+</div>
+
+{{outlet}}

@@ -1,0 +1,25 @@
+{{page-title "Details"}}
+
+<div class="right">
+    <LinkTo @route="categories.edit" @model={{model.id}}>edit</LinkTo>
+    <button
+        type="button"
+        disabled={{gt model.entries.length 0}}
+        title={{if (gt model.entries.length 0) 'Category has entries and cannot be deleted.' ''}}
+        {{action 'delete'}}>delete</button>
+</div>
+
+<h2>Category Details</h2>
+
+<dl>
+    <dt>ID:</dt>
+    <dd>{{model.id}}</dd>
+
+    <dt>Name:</dt>
+    <dd>{{model.name}}</dd>
+
+    <dt>Entries Count:</dt>
+    <dd>{{model.entries.length}}</dd>
+</dl>
+
+{{outlet}}

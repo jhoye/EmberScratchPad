@@ -1,0 +1,10 @@
+{{#each this.args.categories as |category|}}
+    <div>
+        <input type="checkbox"
+            id={{(concat 'category' category.id)}}
+            value={{category.id}}
+            checked={{modelsIncludeId this.args.entryCategories category.id}}
+            onclick={{this.checkboxClick}} />
+        <label for={{(concat 'category' category.id)}}>{{category.name}}</label>
+    </div>
+{{/each}}
