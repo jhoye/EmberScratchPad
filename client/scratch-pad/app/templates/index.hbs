@@ -1,11 +1,9 @@
-{{page-title "Entries"}}
-
-{{#if (eq target.currentRouteName 'entries.index')}}
+{{page-title "Index"}}
 
     <h2>Entries</h2>
 
-    <ul>
-        {{#each model as |entry|}}
+    <ul id="home-entries">
+        {{#each model.entries as |entry|}}
             <li>
                 <span>
                     <LinkTo @route="entries.details" @model={{entry.id}}>
@@ -21,7 +19,5 @@
     <div>
         <LinkTo @route="entries.add">add new entry</LinkTo>
     </div>
-
-{{/if}}
 
 {{outlet}}
