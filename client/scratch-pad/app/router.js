@@ -30,4 +30,5 @@ Router.map(function () {
         path: 'edit/:comment_id'
     });
   });
+  this.route('tinymce-demo');
 });
