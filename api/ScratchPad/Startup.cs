@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.IO;
 using Newtonsoft.Json;
 using ScratchPad.Data;
 using ScratchPad.JsonApi;
@@ -82,6 +84,13 @@ namespace ScratchPad
             app.UseExceptionHandler(JsonApiHelper.ExceptionHandler);
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(env.ContentRootPath, "Assets")),
+                RequestPath = "/assets"
+            });
 
             app.UseRouting();
 
