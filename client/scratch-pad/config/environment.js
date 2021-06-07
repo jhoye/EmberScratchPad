@@ -37,6 +37,10 @@ module.exports = function (environment) {
     enabled: false
   };
 
+  ENV.contentSecurityPolicy = {
+    'connect-src': "'self' https://localhost:5001"
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
